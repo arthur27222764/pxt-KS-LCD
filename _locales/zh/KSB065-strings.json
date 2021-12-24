@@ -23,7 +23,7 @@
   "KSB065.drawCircle|block": "畫圓型: x:%x|y:%y 半徑:%r 顏色:%color",
   "KSB065.drawLine|block": "畫直線: x0:%x0 y0:%y0 |到 x1:%x1 y1:%y1 | 顏色:%color",
   "KSB065.drawPixel|block": "畫點: x:%x|y:%y 顏色:%color",
-  "KSB065.drawRectangle|block": "畫方型: x:%x|y:%y 寬度:%width 長度:%height 顏色:%color",
+  "KSB065.drawRectangle|block": "畫方型: x:%x|y:%y 長度:%width 寬度:%height 顏色:%color",
   "KSB065.init|block": "彩屏初始化",
   "KSB065.showString|block": "顯示文字: %string |x:%x|y:%y 字型大小:%zoom|字型顏色:%color|背景色:%bgcolor"
  

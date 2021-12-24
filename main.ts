@@ -2,44 +2,45 @@
  * Colors
  */
 enum Color {
-    //% block="Black"
-    Black = 0x0000,
+
     //% block="White"
     White = 0xFFFF,
-    //% block="Navy"
-    Navy = 0x000F,
-    //% block="DarkGreen"
-    DarkGreen = 0x03E0,
-    //% block="DarkCyan"
-    DarkCyan = 0x03EF,
-    //% block="Maroon"
-    Maroon = 0x7800,
-    //% block="Purple"
-    Purple = 0x780F,
-    //% block="Olive"
-    Olive = 0x7BE0,
-    //% block="LightGrey"
-    LightGrey = 0xC618,
-    //% block="DarkGrey"
-    DarkGrey = 0x7BEF,
-    //% block="Blue"
-    Blue = 0x001F,
-    //% block="Green"
-    Green = 0x07E0,
-    //% block="Cyan"
-    Cyan = 0x07FF,
-    //% block="Red"
-    Red = 0xF800,
-    //% block="Magenta"
-    Magenta = 0xF81F,
     //% block="Yellow"
     Yellow = 0xFFE0,
     //% block="Orange"
     Orange = 0xFD20,
+    //% block="Pink"
+    Pink = 0xF81F,
+    //% block="Magenta"
+    Magenta = 0xF81F,
+    //% block="Red"
+    Red = 0x001F,
+    //% block="Maroon"
+    Maroon = 0x7800,
+    //% block="Purple"
+    Purple = 0x780F,
     //% block="GreenYellow"
     GreenYellow = 0xAFE5,
-    //% block="Pink"
-    Pink = 0xF81F
+    //% block="Olive"
+    Olive = 0x7BE0,
+    //% block="Green"
+    Green = 0x07E0,
+    //% block="DarkGreen"
+    DarkGreen = 0x03E0,
+    //% block="Cyan"
+    Cyan = 0x07FF,
+    //% block="DarkCyan"
+    DarkCyan = 0x03EF,
+    //% block="Blue"
+    Blue = 0xF800,
+    //% block="Navy"
+    Navy = 0x000F,
+    //% block="LightGrey"
+    LightGrey = 0xC618,
+    //% block="DarkGrey"
+    DarkGrey = 0x7BEF,
+    //% block="Black"
+    Black = 0x0000
 }
 
 /**
