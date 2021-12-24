@@ -6,7 +6,7 @@ enum Color {
     //% block="White"
     White = 0xFFFF,
     //% block="Yellow"
-    Yellow = 0xFFE0,
+    Yellow = 0x7FF,
     //% block="Orange"
     Orange = 0xFD20,
     //% block="Pink"
