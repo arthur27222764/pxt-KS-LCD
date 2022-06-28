@@ -1,7 +1,7 @@
 /**
  * Colors
  */
-enum Color {
+/*enum Color {
 
     //% block="White"
     White = 0xFFFF,
@@ -35,13 +35,56 @@ enum Color {
     Blue = 0xF800,
     //% block="Navy"
     Navy = 0x000F,
-    //% block="LightGrey"
-    LightGrey = 0xC618,
+    //% block="Silver"
+    Silver = 0xC618,
+    //% block="DarkGrey"
+    DarkGrey = 0x7BEF,
+    //% block="Black"
+    Black = 0x0000
+}*/
+
+enum Color {
+
+    //% block="White"
+    White = 0xFFFF,
+    //% block="Yellow"
+    Yellow = 0xFFE0,
+    //% block="Orange"
+    Orange = 0xFD20,
+    //% block="Pink"
+    Pink = 0xF81F,
+    //% block="Magenta"
+    Magenta = 0xF81F,
+    //% block="Red"
+    Red = 0xF800,
+    //% block="Maroon"
+    Maroon = 0x7800,
+    //% block="Purple"
+    Purple = 0x780F,
+    //% block="GreenYellow"
+    GreenYellow = 0xAFE5,
+    //% block="Olive"
+    Olive = 0x7BE0,
+    //% block="Green"
+    Green = 0x07E0,
+    //% block="DarkGreen"
+    DarkGreen = 0x03E0,
+    //% block="Cyan"
+    Cyan = 0x07FF,
+    //% block="DarkCyan"
+    DarkCyan = 0x03EF,
+    //% block="Blue"
+    Blue = 0x001F,
+    //% block="Navy"
+    Navy = 0x000F,
+    //% block="Silver"
+    Silver = 0xC618,
     //% block="DarkGrey"
     DarkGrey = 0x7BEF,
     //% block="Black"
     Black = 0x0000
 }
+
 
 /**
   * KSB065 V0.010
@@ -49,8 +92,7 @@ enum Color {
 //% color="#275C6B" icon="\uf26c" weight=95 block="KSB065"
 namespace KSB065 {
     // Display commands & constants
-    //let TFTWIDTH = 130
-    //let TFTHEIGHT = 162
+   
 
     let TFTWIDTH = 160
     let TFTHEIGHT = 128
@@ -179,12 +221,15 @@ namespace KSB065 {
         // Frame rate control - normal mode
         send(TFTCommands.FRMCTR1, [0x01, 0x2C, 0x2D])
         // Frame rate control - idle mode
-        send(TFTCommands.FRMCTR2, [0x01, 0x2C, 0x2D, 0x01, 0x2C, 0x2D])
+        //send(TFTCommands.FRMCTR2, [0x01, 0x2C, 0x2D, 0x01, 0x2C, 0x2D])
+        send(TFTCommands.FRMCTR2, [0x01, 0x2C, 0x2D]) //By Arthur
+        send(TFTCommands.FRMCTR3, [0x01, 0x2C, 0x2D, 0x01, 0x2C, 0x2D]) //By Arthur
         // Display inversion control
         send(TFTCommands.INVCTR, [0x07])
         // Display power control
         send(TFTCommands.PWCTR1, [0xA2, 0x02, 0x84])
-        send(TFTCommands.PWCTR2, [0x8A, 0x2A])
+        //send(TFTCommands.PWCTR2, [0x8A, 0x2A])
+        send(TFTCommands.PWCTR2, [0xC5])    //By Arthur
         send(TFTCommands.PWCTR3, [0x0A, 0x00])
         send(TFTCommands.PWCTR4, [0x8A, 0x2A])
         send(TFTCommands.PWCTR5, [0x8A, 0xEE])
@@ -194,7 +239,8 @@ namespace KSB065 {
         send(TFTCommands.INVOFF, [])
 
         // Memory access control
-        send(TFTCommands.MADCTL, [0xA8])
+        //send(TFTCommands.MADCTL, [0xA8])
+        send(TFTCommands.MADCTL, [0xF7 & 0xA0])
 
         // Set 16-bit color mode
         send(TFTCommands.COLMOD, [0x05])
@@ -205,8 +251,11 @@ namespace KSB065 {
         send(TFTCommands.RASET, [0x00, 0x00, 0x00, 0x9F])
 
         // Set Gamma
-        send(TFTCommands.GMCTRP1, [0x02, 0x1C, 0x07, 0x12, 0x37, 0x32, 0x29, 0x2D, 0x29, 0x25, 0x2B, 0x39, 0x00, 0x01, 0x03, 0x10])
-        send(TFTCommands.GMCTRN1, [0x03, 0x1D, 0x07, 0x06, 0x2E, 0x2C, 0x29, 0x2D, 0x2E, 0x2E, 0x37, 0x3F, 0x00, 0x00, 0x02, 0x10])
+        //send(TFTCommands.GMCTRP1, [0x02, 0x1C, 0x07, 0x12, 0x37, 0x32, 0x29, 0x2D, 0x29, 0x25, 0x2B, 0x39, 0x00, 0x01, 0x03, 0x10])
+        //send(TFTCommands.GMCTRN1, [0x03, 0x1D, 0x07, 0x06, 0x2E, 0x2C, 0x29, 0x2D, 0x2E, 0x2E, 0x37, 0x3F, 0x00, 0x00, 0x02, 0x10])
+
+        send(TFTCommands.GMCTRP1, [0x0f, 0x1a, 0x0f, 0x18, 0x2f, 0x28, 0x20, 0x22, 0x1f, 0x1b, 0x23, 0x37, 0x00, 0x07, 0x02, 0x10])
+        send(TFTCommands.GMCTRN1, [0x0f, 0x1b, 0x0f, 0x17, 0x33, 0x2c, 0x29, 0x2e, 0x30, 0x30, 0x39, 0x3f, 0x00, 0x07, 0x03, 0x10])
 
         // Set normal mode
         send(TFTCommands.NORON, [])
@@ -219,8 +268,8 @@ namespace KSB065 {
      * Draw single pixel
      */
     //% block="Draw single pixel at x:%x|y:%y with color:%color"
-    //% x.min=1 x.max=130
-    //% y.min=1 y.max=162
+    //% x.min=0 x.max=160
+    //% y.min=0 y.max=128
     //% weight=90
     export function drawPixel(x: number, y: number, color: Color): void {
         setWindow(x, y, x + 1, y + 1)
@@ -231,10 +280,10 @@ namespace KSB065 {
      * Draw a straight line from one point to another
      */
     //% block="Draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%color"
-    //% x0.min=1 x0.max=130
-    //% y0.min=1 y0.max=162
-    //% x1.min=1 x1.max=130
-    //% y1.min=1 y1.max=162
+    //% x0.min=0 x0.max=160
+    //% y0.min=0 y0.max=128
+    //% x1.min=0 x1.max=120
+    //% y1.min=0 y1.max=128
     //% weight=85
     export function drawLine(x0: number, y0: number, x1: number, y1: number, color: Color): void {
         let xDelta = x1 - x0
@@ -270,8 +319,8 @@ namespace KSB065 {
      * Draw rectangle with a given color
      */
     //% block="Draw rectangle at x:%x|y:%y with width:%width|height:%height|color:%color"
-    //% x.min=1 x.max=130
-    //% y.min=1 y.max=162
+    //% x.min=0 x.max=160
+    //% y.min=0 y.max=128
     //% weight=80
     export function drawRectangle(x: number, y: number, width: number, height: number, color: Color): void {
 
@@ -297,8 +346,8 @@ namespace KSB065 {
      * Draw circle with a given radius
      */
     //% block="Draw circle at: x:%x|y:%y with radius:%r and color:%color"
-    //% x.min=1 x.max=130
-    //% y.min=1 y.max=162
+    //% x.min=0 x.max=160
+    //% y.min=0 y.max=128
     //% weight=75
     export function drawCircle(x: number, y: number, radius: number, color: Color): void {
         for (let y1 = -radius; y1 <= 0; y1++) {
@@ -318,8 +367,8 @@ namespace KSB065 {
      */
     //% block="Show string:%string at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor"
     //% weight=70
-    //% x.min=1 x.max=130
-    //% y.min=1 y.max=162
+    //% x.min=0 x.max=160
+    //% y.min=0 y.max=128
     //% zoom.min=1 zoom.max=5
     export function showString(text: string, x: number, y: number, zoom: number, color: Color, bgColor: Color): void {
         let hiColor = (color >> 8) % 256
