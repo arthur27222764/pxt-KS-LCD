@@ -87,9 +87,9 @@ enum Color {
 
 
 /**
-  * KSB065 V0.010
+  * KS_LCD V0.010
   */
-//% color="#275C6B" icon="\uf26c" weight=95 block="KS_LCD"
+//% color="#00A6F0" icon="\uf26c" weight=10 block="KS_LCD"
 namespace KS_LCD {
     // Display commands & constants
    
