@@ -1,15 +1,15 @@
 {
-    "name": "KSB065",
+    "name": "KS_LCD",
     "version": "0.0.1",
-    "description": "Extension for KAISE KSRobot KSB065 Home Automation Board",
-    "license": "MIT",
+    "description": "Extension for KAISE KSRobot ST7735 LCD",
+    "license": "",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
         "main.ts",
-        "_locales/zh/KSB065-strings.json"
+        "_locales/zh/KS_LCD-strings.json"
         
     ],
     "testFiles": [
