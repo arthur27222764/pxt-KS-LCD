@@ -283,7 +283,7 @@ namespace KS_LCD {
     //% block="Draw line from x0:%x0|y0:%y0 to x1:%x1|y:%y1 with color:%color"
     //% x0.min=0 x0.max=160
     //% y0.min=0 y0.max=128
-    //% x1.min=0 x1.max=120
+    //% x1.min=0 x1.max=160
     //% y1.min=0 y1.max=128
     //% weight=85
     export function drawLine(x0: number, y0: number, x1: number, y1: number, color: Color): void {
@@ -366,11 +366,11 @@ namespace KS_LCD {
     /*
      * Display string at given coordinates
      */
-    //% block="Show string:%string at x:%x and y:%y with zoom-level:%zoom color:%color and background color:%bgcolor"
+    //% block="Show string:%string at x:%x and y:%y with font-size:%zoom color:%color and background color:%bgcolor"
     //% weight=70
     //% x.min=0 x.max=160
     //% y.min=0 y.max=128
-    //% zoom.min=1 zoom.max=5
+    //% zoom.min=1 zoom.max=5 zoom.defl=2
     export function showString(text: string, x: number, y: number, zoom: number, color: Color, bgColor: Color): void {
         let hiColor = (color >> 8) % 256
         let loColor = color % 256
