@@ -313,6 +313,8 @@ namespace KS_LCD {
     //% block="Draw rectangle at x:%x|y:%y with width:%width|height:%height|color:%color"
     //% x.min=0 x.max=160
     //% y.min=0 y.max=128
+    //% width.min=0 width.max=160
+    //% height.min=0 height.max=128
     //% weight=80
     export function drawRectangle(x: number, y: number, width: number, height: number, color: Color): void {
 
