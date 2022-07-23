@@ -271,6 +271,8 @@ namespace KS_LCD {
         pins.spiFrequency(4000000)
 
         ST7735_SET()
+        //Clear screen
+        drawRectangle(0, 0, TFTWIDTH, TFTHEIGHT, 0)
 
 
     }
@@ -287,6 +289,8 @@ namespace KS_LCD {
         pins.spiFrequency(4000000)
 
         ST7735_SET()
+        //Clear screen
+        drawRectangle(0, 0, TFTWIDTH, TFTHEIGHT, 0)
 
 
     }
