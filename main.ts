@@ -266,6 +266,7 @@ namespace KS_LCD {
     //% block="Initialize TFT Display and SD "
     //% weight=100
     export function tft_sd_init(): void {
+        led.enable(false)
         pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
         // set SPI frequency
         pins.spiFrequency(4000000)
