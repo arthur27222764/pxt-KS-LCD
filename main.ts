@@ -92,7 +92,7 @@ enum Color {
 //% color="#00A6F0" icon="\uf26c" weight=10 block="KS_LCD"
 namespace KS_LCD {
     // Display commands & constants
-   
+
 
     let TFTWIDTH = 160
     let TFTHEIGHT = 128
@@ -206,16 +206,9 @@ namespace KS_LCD {
     }
 
     /*
-     * Initial TFT setup
+     * 
      */
-    //% block="Initialize TFT Display"
-    //% weight=100
-    export function init(): void {
-        //pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
-        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
-        // set SPI frequency
-        pins.spiFrequency(4000000)
-
+    function ST7735_SET(): void {
         // Software reset
         send(TFTCommands.SWRESET, [1])
         // Exit Sleep mode
@@ -264,6 +257,38 @@ namespace KS_LCD {
 
         // Turn display on
         send(TFTCommands.DISPON, [])
+
+    }
+
+    /*
+     * Initial TFT setup
+     */
+    //% block="Initialize TFT Display and SD "
+    //% weight=100
+    export function tft_sd_init(): void {
+        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+        // set SPI frequency
+        pins.spiFrequency(4000000)
+
+        ST7735_SET()
+
+
+    }
+
+
+    /*
+     * Initial TFT setup
+     */
+    //% block="Initialize TFT Display"
+    //% weight=100
+    export function tft_init(): void {
+        pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
+        // set SPI frequency
+        pins.spiFrequency(4000000)
+
+        ST7735_SET()
+
+
     }
 
     /*
