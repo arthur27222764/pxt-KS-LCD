@@ -357,7 +357,7 @@ namespace KS_LCD {
     /*
      * Display string at given coordinates
      */
-    //% block="Show string:%string at x:%x and y:%y with font-size:%zoom color:%color and background color:%bgcolor"
+    //% block="Show string:%text at x:%x and y:%y with font-size:%zoom color:%color and background color:%bgcolor"
     //% weight=70
     //% x.min=0 x.max=160
     //% y.min=0 y.max=128
@@ -425,6 +425,81 @@ namespace KS_LCD {
             exitDataMode();
         }
     }
+    
+    /*
+    * Display string at given coordinates
+    */
+    //% block="Show number:%value at x:%x and y:%y with font-size:%zoom color:%color and background color:%bgcolor"
+    //% weight=70
+    //% x.min=0 x.max=160
+    //% y.min=0 y.max=128
+    //% zoom.min=1 zoom.max=5 zoom.defl=2
+    export function showNumber(value: number, x: number, y: number, zoom: number, color: Color, bgColor: Color): void {
+        let hiColor = (color >> 8) % 256
+        let loColor = color % 256
+        let bgHiColor = (bgColor >> 8) % 256
+        let bgLoColor = bgColor % 256
+        let zoomFactor = zoom
+        let index = 0
+        let colsel = 0
+        let unicode = 0
+        let charIndex = 0
+        let text=convertToText(value)
+        for (let stringPos = 0; stringPos < text.length; stringPos++) {
+            // Get character at current string position and find the corresponding unicode representation
+            charIndex = text.charCodeAt(stringPos)
+            if (charIndex < 20) {
+                unicode = fontOne[charIndex]
+            }
+            else if (charIndex < 40) {
+                unicode = fontTwo[charIndex - 20]
+            }
+            else if (charIndex < 60) {
+                unicode = fontThree[charIndex - 40]
+            }
+            else if (charIndex < 80) {
+                unicode = fontFour[charIndex - 60]
+            }
+            else if (charIndex < 100) {
+                unicode = fontFive[charIndex - 80]
+            }
+            else if (charIndex < 120) {
+                unicode = fontSix[charIndex - 100]
+            }
+            else if (charIndex < 140) {
+                unicode = fontSeven[charIndex - 120]
+            }
+
+            // Set position and go into data mode
+            setWindow(x + stringPos * 5 * zoomFactor, y, x + stringPos * 5 * zoomFactor + 5 * zoomFactor - 1, y + 5 * zoomFactor - 1)
+            enterDataMode()
+
+            // write character to display
+            for (let indexY = 0; indexY < 5; indexY++) {
+                for (let a = 0; a < zoomFactor; a++) {
+                    for (let indexX = 0; indexX < 5; indexX++) {
+                        index = indexY + indexX * 5
+                        colsel = (unicode & (1 << index))
+                        for (let b = 0; b < zoomFactor; b++) {
+                            if (colsel) {
+                                pins.spiWrite(hiColor);
+                                pins.spiWrite(loColor);
+                            }
+                            else {
+                                pins.spiWrite(bgHiColor);
+                                pins.spiWrite(bgLoColor);
+                            }
+                        }
+                    }
+                }
+            }
+
+            exitDataMode();
+        }
+    }
+
+
+
 
     //% block="Clear screen"
     //% weight=65

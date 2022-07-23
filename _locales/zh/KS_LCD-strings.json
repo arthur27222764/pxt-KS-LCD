@@ -26,6 +26,7 @@
   "KS_LCD.drawRectangle|block": "畫方型: x:%x|y:%y 長度:%width 寬度:%height 顏色:%color",
   "KS_LCD.tft_sd_init|block": "彩屏和SD卡初始化",
   "KS_LCD.tft_init|block": "彩屏初始化",
-  "KS_LCD.showString|block": "顯示文字: %string |x:%x|y:%y 字型大小:%zoom|字型顏色:%color|背景色:%bgcolor"
+  "KS_LCD.showString|block": "顯示文字: %text |x:%x|y:%y 字型大小:%zoom|字型顏色:%color|背景色:%bgcolor",
+  "KS_LCD.showNumber|block": "顯示數字: %value |x:%x|y:%y 字型大小:%zoom|字型顏色:%color|背景色:%bgcolor"
  
 }
