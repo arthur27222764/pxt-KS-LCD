@@ -165,10 +165,13 @@ namespace KS_LCD {
         pins.digitalWritePin(DigitalPin.P8, 0) // command/data = command
     }
 
+    
     /*
-     * 
+     * Initial ST735
      */
-    function ST7735_SET(): void {
+    //% block="Initialize ST7735"
+    //% weight=100
+    export function ST7735_SET(): void {
         // Software reset
         send(TFTCommands.SWRESET, [1])
         // Exit Sleep mode
