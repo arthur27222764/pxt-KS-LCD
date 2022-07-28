@@ -233,6 +233,7 @@ namespace KS_LCD {
         pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
         // set SPI frequency
         pins.spiFrequency(4000000)
+        pins.spiFormat(8, 3)
         
 
         ST7735_SET()
