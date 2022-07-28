@@ -235,6 +235,7 @@ namespace KS_LCD {
         pins.spiFrequency(4000000)
         pins.spiFormat(8, 3)
         
+        
 
         ST7735_SET()
         //Clear screen
