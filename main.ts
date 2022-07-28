@@ -2,7 +2,6 @@
  * Colors
  */
 
-
 enum Color {
 
     //% block="White"
