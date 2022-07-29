@@ -116,32 +116,7 @@ namespace KS_LCD {
     /*
      * Send command to display
      */
-    /*function send(command: TFTCommands, parameter: Array<number>): void {
-        // set TFT to command-receive mode
-        pins.digitalWritePin(DigitalPin.P8, 0)
-        // select TFT controller
-        pins.digitalWritePin(DigitalPin.P16, 0)
-        // Send command
-        pins.spiWrite(command)
-
-        // set TFT back to data-receive mode
-        pins.digitalWritePin(DigitalPin.P8, 1)
-
-        for (let item of parameter) {
-            pins.spiWrite(item)
-        }
-
-        // deselect TFT controller
-        pins.digitalWritePin(DigitalPin.P16, 1)
-    }*/
     function send(command: TFTCommands, parameter: Array<number>): void {
-        pins.digitalWritePin(DigitalPin.P16, 1)
-        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
-        // set SPI frequency
-        pins.spiFrequency(1000000)
-        pins.spiFormat(8, 3)
-
-
         // set TFT to command-receive mode
         pins.digitalWritePin(DigitalPin.P8, 0)
         // select TFT controller
@@ -158,7 +133,7 @@ namespace KS_LCD {
 
         // deselect TFT controller
         pins.digitalWritePin(DigitalPin.P16, 1)
-    }
+    }   
 
 
 
@@ -257,10 +232,10 @@ namespace KS_LCD {
     //% weight=100
     export function tft_sd_init(): void {
         led.enable(false)
-        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+        //pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
         // set SPI frequency
-        pins.spiFrequency(1000000)
-        pins.spiFormat(8, 3)
+        //pins.spiFrequency(1000000)
+        //pins.spiFormat(8, 3)
 
 
 
@@ -278,9 +253,9 @@ namespace KS_LCD {
     //% block="Initialize TFT Display"
     //% weight=100
     export function tft_init(): void {
-        pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
+        //pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
         // set SPI frequency
-        pins.spiFrequency(1000000)
+        //pins.spiFrequency(1000000)
 
 
         ST7735_SET()
