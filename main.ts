@@ -232,10 +232,10 @@ namespace KS_LCD {
     //% weight=100
     export function tft_sd_init(): void {
         led.enable(false)
-        //pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
         // set SPI frequency
-        //pins.spiFrequency(1000000)
-        //pins.spiFormat(8, 3)
+        pins.spiFrequency(4000000)
+        pins.spiFormat(8, 0)
 
 
 
@@ -253,9 +253,10 @@ namespace KS_LCD {
     //% block="Initialize TFT Display"
     //% weight=100
     export function tft_init(): void {
-        //pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
+        pins.spiPins(DigitalPin.P15, DigitalPin.P0, DigitalPin.P13)
         // set SPI frequency
-        //pins.spiFrequency(1000000)
+        pins.spiFrequency(4000000)
+        pins.spiFormat(8,0)
 
 
         ST7735_SET()
